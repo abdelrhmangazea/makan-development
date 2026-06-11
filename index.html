@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مَكَان للتطوير العقاري | MAKAN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=El+Messiri:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green-900:#2c352e; --green-800:#37443b; --green-700:#475448; --green-600:#5c6960;
+  --gold:#c2a063; --gold-soft:#d8c197;
+  --cream:#f4f1ea; --paper:#fbfaf6; --line:#e4dfd3; --ink:#23282480; 
+  --ink:#232824; --muted:#7f877e;
+  --shadow:0 18px 50px -22px rgba(28,34,29,.45);
+  --display-en:'Cormorant Garamond',serif; --display-ar:'El Messiri',sans-serif;
+  --body-en:'Outfit',sans-serif; --body-ar:'Tajawal',sans-serif;
+  --display:var(--display-ar); --body:var(--body-ar);
+}
+html[lang=en]{--display:var(--display-en); --body:var(--body-en);}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.display{font-family:var(--display)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--body);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600}
+html[dir=rtl] .eyebrow{letter-spacing:.12em}
+.btn{display:inline-flex;align-items:center;gap:.55em;padding:.85em 1.7em;border-radius:2px;font-family:var(--body);font-weight:600;font-size:.92rem;letter-spacing:.02em;cursor:pointer;border:1px solid transparent;transition:.3s}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:var(--green-800)}
+.btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-dark{background:var(--green-800);color:#fff}
+.btn-dark:hover{background:var(--gold)}
+
+/* ---------- HEADER ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:.4s}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;max-width:1280px;margin:0 auto}
+header.scrolled{background:rgba(251,250,246,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;transition:.4s}
+header.scrolled .brand{color:var(--green-800)}
+.brand .mark{flex:0 0 auto}
+.brand .mark rect{transition:.4s}
+.brand .wm{line-height:1.05}
+.brand .wm b{font-family:var(--display);font-size:1.35rem;font-weight:700;letter-spacing:.04em;display:block}
+.brand .wm span{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;opacity:.8;font-family:var(--body)}
+html[dir=rtl] .brand .wm span{letter-spacing:.05em}
+.menu{display:flex;align-items:center;gap:30px}
+.menu a{font-family:var(--body);font-size:.9rem;font-weight:500;color:#fff;opacity:.92;position:relative;transition:.3s}
+header.scrolled .menu a{color:var(--green-800)}
+.menu a::after{content:"";position:absolute;bottom:-6px;inset-inline-start:0;width:0;height:1px;background:var(--gold);transition:.3s}
+.menu a:hover::after{width:100%}
+.menu a:hover{color:var(--gold)}
+.actions{display:flex;align-items:center;gap:14px}
+.lang{display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,.45);border-radius:2px;overflow:hidden;font-family:var(--body);font-size:.78rem;font-weight:600}
+header.scrolled .lang{border-color:var(--line)}
+.lang button{padding:.5em .85em;background:transparent;border:0;color:#fff;cursor:pointer;transition:.25s;letter-spacing:.05em}
+header.scrolled .lang button{color:var(--green-800)}
+.lang button.on{background:var(--gold);color:#fff}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+.burger span{width:24px;height:2px;background:#fff;transition:.3s}
+header.scrolled .burger span{background:var(--green-800)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06);animation:slowzoom 14s ease-out forwards}
+@keyframes slowzoom{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(28,34,29,.86) 0%,rgba(28,34,29,.55) 45%,rgba(28,34,29,.25) 100%)}
+html[dir=rtl] .hero::after{background:linear-gradient(255deg,rgba(28,34,29,.86) 0%,rgba(28,34,29,.55) 45%,rgba(28,34,29,.25) 100%)}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero-inner{max-width:680px;padding:90px 0 40px}
+.hero .eyebrow{display:block;margin-bottom:22px;opacity:0;transform:translateY(14px);animation:rise .8s .2s forwards}
+.hero h1{font-size:clamp(2.6rem,6vw,4.7rem);line-height:1.04;font-weight:600;margin-bottom:22px;opacity:0;transform:translateY(18px);animation:rise .9s .35s forwards}
+.hero h1 em{font-style:italic;color:var(--gold-soft)}
+html[lang=ar] .hero h1 em{font-style:normal;color:var(--gold-soft)}
+.hero p.lead{font-size:1.1rem;font-weight:300;max-width:520px;opacity:0;transform:translateY(18px);animation:rise .9s .5s forwards;color:rgba(255,255,255,.9)}
+.hero .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px;opacity:0;transform:translateY(18px);animation:rise .9s .65s forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.hero-frame{position:absolute;inset:26px;border:1px solid rgba(255,255,255,.22);z-index:1;pointer-events:none}
+.scroll-cue{position:absolute;bottom:26px;inset-inline-start:50%;transform:translateX(-50%);z-index:2;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-cue .l{width:1px;height:38px;background:rgba(255,255,255,.5)}
+
+/* ---------- STRIP ---------- */
+.strip{background:var(--green-800);color:#fff;text-align:center;padding:46px 0}
+.strip p{font-family:var(--display);font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:500;max-width:880px;margin:0 auto;line-height:1.45}
+.strip .gold{color:var(--gold-soft)}
+
+/* ---------- SECTION ---------- */
+section{padding:104px 0}
+.sec-head{max-width:620px;margin-bottom:54px}
+.sec-head.center{margin-inline:auto;text-align:center}
+.sec-head h2{font-size:clamp(2rem,4.2vw,3.1rem);font-weight:600;line-height:1.1;margin:14px 0 0;color:var(--green-900)}
+.sec-head p{margin-top:16px;color:var(--muted);font-size:1.02rem}
+.divider{display:flex;align-items:center;gap:12px;color:var(--gold)}
+.sec-head.center .divider{justify-content:center}
+.divider::before,.divider .dot{content:"";height:1px;background:var(--gold)}
+.divider .ln{width:46px;height:1px;background:var(--gold);display:inline-block}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.about-txt h3{font-size:1.5rem;color:var(--green-800);margin:30px 0 10px;font-weight:600}
+.about-txt p{color:#4a514a;margin-bottom:14px}
+.vlist{list-style:none;margin-top:18px}
+.vlist li{position:relative;padding-inline-start:26px;margin-bottom:11px;color:#4a514a}
+.vlist li::before{content:"";position:absolute;inset-inline-start:0;top:11px;width:9px;height:9px;border:1px solid var(--gold);transform:rotate(45deg)}
+.about-img{position:relative}
+.about-img .frame{position:absolute;inset:-16px;border:1px solid var(--gold);z-index:0}
+html[dir=rtl] .about-img .frame{inset:-16px;}
+.about-img img{position:relative;z-index:1;width:100%;height:540px;object-fit:cover}
+.about-img .tag{position:absolute;z-index:2;bottom:-1px;inset-inline-start:-1px;background:var(--green-800);color:#fff;padding:14px 22px;font-family:var(--display);font-size:1.05rem}
+
+/* SERVICES */
+#services{background:var(--cream)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.svc{background:var(--paper);padding:40px 32px;transition:.35s;position:relative}
+.svc:hover{background:var(--green-800);color:#fff}
+.svc .ic{width:46px;height:46px;color:var(--gold);margin-bottom:22px}
+.svc:hover .ic{color:var(--gold-soft)}
+.svc h3{font-size:1.28rem;font-weight:600;color:var(--green-900);margin-bottom:10px}
+.svc:hover h3{color:#fff}
+.svc p{font-size:.93rem;color:var(--muted)}
+.svc:hover p{color:rgba(255,255,255,.82)}
+.svc .no{position:absolute;top:26px;inset-inline-end:28px;font-family:var(--display);font-size:1rem;color:var(--line)}
+.svc:hover .no{color:rgba(255,255,255,.35)}
+
+/* PORTFOLIO */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.sec-head.center + .filters{justify-content:center}
+.filters button{font-family:var(--body);font-size:.86rem;font-weight:500;padding:.55em 1.25em;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:2px;cursor:pointer;transition:.25s}
+.filters button.on,.filters button:hover{background:var(--green-800);color:#fff;border-color:var(--green-800)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cell{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer;background:var(--green-800)}
+.cell img{width:100%;height:100%;object-fit:cover;transition:.6s ease}
+.cell:hover img{transform:scale(1.07)}
+.cell .cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;background:linear-gradient(to top,rgba(28,34,29,.82),rgba(28,34,29,0) 55%);opacity:0;transition:.35s}
+.cell:hover .cap{opacity:1}
+.cell .cap .k{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft)}
+html[dir=rtl] .cell .cap .k{letter-spacing:.06em}
+.cell .cap .t{font-family:var(--display);color:#fff;font-size:1.15rem;margin-top:4px}
+.cell.hide{display:none}
+
+/* PROCESS */
+#process{background:var(--green-900);color:#fff}
+#process .sec-head h2{color:#fff}
+#process .sec-head p{color:rgba(255,255,255,.65)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.12)}
+.step{background:var(--green-900);padding:36px 30px;transition:.35s}
+.step:hover{background:var(--green-800)}
+.step .no{font-family:var(--display);font-size:2.4rem;color:var(--gold);line-height:1;margin-bottom:14px}
+.step h3{font-size:1.18rem;font-weight:600;margin-bottom:8px}
+.step p{font-size:.9rem;color:rgba(255,255,255,.7)}
+
+/* GUARANTEES + DELIVERABLES */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.gitem{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.gitem:last-child{border-bottom:0}
+.gitem .ck{flex:0 0 auto;width:30px;height:30px;border:1px solid var(--gold);color:var(--gold);display:grid;place-items:center;border-radius:50%}
+.gitem h3{font-size:1.05rem;font-weight:600;color:var(--green-900)}
+.gitem p{font-size:.9rem;color:var(--muted)}
+.deliver{background:var(--green-800);color:#fff;padding:42px 40px}
+.deliver h3{font-family:var(--display);font-size:1.6rem;margin-bottom:8px}
+.deliver .sub{color:rgba(255,255,255,.7);font-size:.92rem;margin-bottom:24px}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dcard{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:18px}
+.dcard b{display:block;color:var(--gold-soft);font-family:var(--display);font-size:1.05rem;margin-bottom:4px}
+.dcard span{font-size:.82rem;color:rgba(255,255,255,.72)}
+
+/* CONTACT */
+#contact{background:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.cinfo .row{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px}
+.cinfo .row .ic{flex:0 0 auto;color:var(--gold)}
+.cinfo .row b{display:block;color:var(--green-900);font-size:.78rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:2px;font-family:var(--body)}
+html[dir=rtl] .cinfo .row b{letter-spacing:.04em}
+.cinfo .row span{color:#4a514a}
+form .fld{margin-bottom:16px}
+form label{display:block;font-size:.82rem;color:var(--green-800);margin-bottom:6px;font-weight:500}
+form input,form select,form textarea{width:100%;padding:.8em 1em;border:1px solid var(--line);background:var(--paper);font-family:var(--body);font-size:.95rem;color:var(--ink);border-radius:2px;transition:.25s}
+form input:focus,form select,form textarea:focus{outline:0;border-color:var(--gold)}
+form textarea{resize:vertical;min-height:96px}
+
+/* FOOTER */
+footer{background:var(--green-900);color:rgba(255,255,255,.7);padding:54px 0 26px}
+.foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-bot{padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem}
+.foot-link{display:flex;gap:22px;flex-wrap:wrap}
+.foot-link a:hover{color:var(--gold)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* responsive */
+@media(max-width:900px){
+  .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);flex-direction:column;justify-content:center;background:var(--green-900);transform:translateX(100%);transition:.4s;gap:26px;z-index:60}
+  html[dir=rtl] .menu{inset:0 auto 0 0;transform:translateX(-100%)}
+  .menu.open{transform:none}
+  .menu a{color:#fff!important;font-size:1.1rem}
+  .burger{display:flex;z-index:61}
+  .about-grid,.two,.contact-grid{grid-template-columns:1fr;gap:38px}
+  .svc-grid,.gallery,.steps,.dgrid{grid-template-columns:1fr 1fr}
+  .about-img img{height:420px}
+}
+@media(max-width:560px){
+  .svc-grid,.gallery,.steps,.dgrid{grid-template-columns:1fr}
+  section{padding:74px 0}
+  .wrap{padding:0 20px}
+  .hero-frame{inset:14px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <nav class="nav">
+    <a href="#home" class="brand">
+      <svg class="mark" width="34" height="34" viewBox="0 0 34 34" fill="none">
+        <rect x="4" y="14" width="8" height="16" fill="var(--gold)"/>
+        <rect x="14" y="6" width="8" height="24" fill="currentColor"/>
+        <rect x="24" y="11" width="6" height="19" fill="var(--gold)"/>
+      </svg>
+      <span class="wm"><b>مَكَان</b><span data-en="Real Estate Development" data-ar="للتطوير العقاري">للتطوير العقاري</span></span>
+    </a>
+    <div class="menu" id="menu">
+      <a href="#about" data-en="About" data-ar="من نحن">من نحن</a>
+      <a href="#services" data-en="Services" data-ar="خدماتنا">خدماتنا</a>
+      <a href="#work" data-en="Projects" data-ar="أعمالنا">أعمالنا</a>
+      <a href="#process" data-en="Process" data-ar="مراحل العمل">مراحل العمل</a>
+      <a href="#contact" data-en="Contact" data-ar="تواصل">تواصل</a>
+    </div>
+    <div class="actions">
+      <div class="lang">
+        <button data-lang="ar" class="on">ع</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg" style="background-image:url('assets/img/hero.jpg')"></div>
+  <div class="hero-frame"></div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow" data-en="Architectural Designer · Al-Madinah, KSA" data-ar="تصميم معماري · المدينة المنورة">تصميم معماري · المدينة المنورة</span>
+      <h1 data-en="We turn <em>imagination</em> into reality" data-ar="نحوّل <em>الخيال</em> إلى واقع">نحوّل <em>الخيال</em> إلى واقع</h1>
+      <p class="lead" data-en="Interior &amp; exterior design, execution, and supervision — for residential and commercial projects across the Kingdom." data-ar="تصميم داخلي وخارجي، تنفيذ، وإشراف — للمشاريع السكنية والتجارية في المملكة العربية السعودية.">تصميم داخلي وخارجي، تنفيذ، وإشراف — للمشاريع السكنية والتجارية في المملكة العربية السعودية.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-gold" data-en="Book a consultation" data-ar="احجز استشارة">احجز استشارة</a>
+        <a href="#work" class="btn btn-ghost" data-en="View our work" data-ar="شاهد أعمالنا">شاهد أعمالنا</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span data-en="Scroll" data-ar="مرّر">مرّر</span><span class="l"></span></div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="wrap">
+    <p data-en="Designers, engineers, and builders <span class='gold'>under one roof</span> — from the first idea to furnishing and handover." data-ar="مصممون ومهندسون ومنفذون <span class='gold'>تحت مظلة واحدة</span> — من أول الفكرة حتى التأثيث والتسليم.">مصممون ومهندسون ومنفذون <span class="gold">تحت مظلة واحدة</span> — من أول الفكرة حتى التأثيث والتسليم.</p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-txt rv">
+      <span class="divider"><span class="ln"></span><span class="eyebrow" data-en="About Makan" data-ar="من نحن">من نحن</span></span>
+      <h2 style="font-family:var(--display);font-size:clamp(2rem,4.2vw,3rem);color:var(--green-900);font-weight:600;line-height:1.12;margin:14px 0 18px" data-en="A place to create and innovate" data-ar="مكان للابتكار والإبداع">مكان للابتكار والإبداع</h2>
+      <p data-en="MAKAN means empowerment — the ability to achieve what seems hard to execute. We are a company specialized in interior design, exterior facades, landscapes, consulting, contracting, and project supervision, with a team of experienced engineers, designers, and builders who share a refined taste." data-ar="مَكَان هو مفهوم التمكين والإمكان على ما يصعب تنفيذه. شركة متخصصة في التصميم الداخلي وتصميم الواجهات الخارجية والحدائق وتقديم الاستشارات وتنفيذ المقاولات والإشراف على المشاريع، بفريق من المهندسين والمصممين والمنفذين ذوي الخبرة والذوق الرفيع.">مَكَان هو مفهوم التمكين والإمكان على ما يصعب تنفيذه. شركة متخصصة في التصميم الداخلي وتصميم الواجهات الخارجية والحدائق وتقديم الاستشارات وتنفيذ المقاولات والإشراف على المشاريع، بفريق من المهندسين والمصممين والمنفذين ذوي الخبرة والذوق الرفيع.</p>
+      <h3 data-en="Our vision" data-ar="رؤيتنا">رؤيتنا</h3>
+      <ul class="vlist">
+        <li data-en="We draw imagination with realism, and lead in innovation and execution." data-ar="نرسم الخيال بواقعية، ونكون سبّاقين في الابتكار وتنفيذ الأفكار.">نرسم الخيال بواقعية، ونكون سبّاقين في الابتكار وتنفيذ الأفكار.</li>
+        <li data-en="We stay close to our clients, from the first idea to handover." data-ar="نبقى قريبين من عملائنا، من أول الفكرة حتى التسليم.">نبقى قريبين من عملائنا، من أول الفكرة حتى التسليم.</li>
+        <li data-en="To be a name for luxury and refinement, and a leader in urban development." data-ar="أن نكون عنوانًا للفخامة والرقي، ورائدين في مجال التطوير العمراني.">أن نكون عنوانًا للفخامة والرقي، ورائدين في مجال التطوير العمراني.</li>
+      </ul>
+      <h3 data-en="Our mission" data-ar="رسالتنا">رسالتنا</h3>
+      <p data-en="To become the client's number-one choice inside and outside the Kingdom — balancing budget, quality, and beauty to deliver dreams beyond expectations." data-ar="أن نصبح الخيار الأول للعملاء داخل المملكة وخارجها — بالموازنة بين الميزانية والجودة والجمال لتنفيذ مشاريع الأحلام بصورة تفوق التوقعات.">أن نصبح الخيار الأول للعملاء داخل المملكة وخارجها — بالموازنة بين الميزانية والجودة والجمال لتنفيذ مشاريع الأحلام بصورة تفوق التوقعات.</p>
+    </div>
+    <div class="about-img rv">
+      <div class="frame"></div>
+      <img src="assets/img/about.jpg" alt="Interior by Makan">
+      <span class="tag" data-en="Interior · Residential" data-ar="تصميم داخلي · سكني">تصميم داخلي · سكني</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="divider"><span class="ln"></span><span class="eyebrow" data-en="What we offer" data-ar="ماذا نقدّم">ماذا نقدّم</span><span class="ln"></span></span>
+      <h2 data-en="Our services" data-ar="خدماتنا">خدماتنا</h2>
+      <p data-en="A complete design-to-delivery offering across residential and commercial work." data-ar="منظومة متكاملة من التصميم حتى التسليم، للمشاريع السكنية والتجارية.">منظومة متكاملة من التصميم حتى التسليم، للمشاريع السكنية والتجارية.</p>
+    </div>
+    <div class="svc-grid rv" id="svcGrid"></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="divider"><span class="ln"></span><span class="eyebrow" data-en="Selected projects" data-ar="مشاريع مختارة">مشاريع مختارة</span><span class="ln"></span></span>
+      <h2 data-en="Our work" data-ar="أعمالنا">أعمالنا</h2>
+    </div>
+    <div class="filters rv" id="filters"></div>
+    <div class="gallery rv" id="gallery"></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="divider"><span class="ln"></span><span class="eyebrow" data-en="How we work" data-ar="آلية العمل">آلية العمل</span><span class="ln"></span></span>
+      <h2 data-en="From idea to handover" data-ar="من الفكرة حتى التسليم">من الفكرة حتى التسليم</h2>
+    </div>
+    <div class="steps rv" id="steps"></div>
+  </div>
+</section>
+
+<!-- GUARANTEES + DELIVERABLES -->
+<section id="why">
+  <div class="wrap two">
+    <div class="rv">
+      <span class="divider"><span class="ln"></span><span class="eyebrow" data-en="Why Makan" data-ar="لماذا مكان">لماذا مكان</span></span>
+      <h2 style="font-family:var(--display);font-size:clamp(1.9rem,3.6vw,2.6rem);color:var(--green-900);font-weight:600;margin:14px 0 24px" data-en="What we guarantee" data-ar="ماذا نضمن لك">ماذا نضمن لك</h2>
+      <div id="guarantees"></div>
+    </div>
+    <div class="deliver rv">
+      <h3 data-en="What you receive" data-ar="ماذا تستلم">ماذا تستلم</h3>
+      <p class="sub" data-en="A complete, build-ready project file." data-ar="ملف مشروع كامل وجاهز للتنفيذ.">ملف مشروع كامل وجاهز للتنفيذ.</p>
+      <div class="dgrid" id="deliver"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="divider"><span class="ln"></span><span class="eyebrow" data-en="Get in touch" data-ar="تواصل معنا">تواصل معنا</span></span>
+      <h2 data-en="Start your project" data-ar="ابدأ مشروعك">ابدأ مشروعك</h2>
+      <p data-en="Tell us about your space — we'll get back with the next steps." data-ar="احكِ لنا عن مشروعك، ونرجع لك بالخطوات التالية.">احكِ لنا عن مشروعك، ونرجع لك بالخطوات التالية.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="cinfo rv">
+        <div class="row"><span class="ic">▮</span><div><b data-en="Phone / WhatsApp" data-ar="الجوال / واتساب">الجوال / واتساب</b><span dir="ltr">+966 599 303 838</span></div></div>
+        <div class="row"><span class="ic">▮</span><div><b data-en="Email" data-ar="البريد الإلكتروني">البريد الإلكتروني</b><span dir="ltr">makan.interior0design@gmail.com</span></div></div>
+        <div class="row"><span class="ic">▮</span><div><b data-en="Website" data-ar="الموقع الإلكتروني">الموقع الإلكتروني</b><span dir="ltr">makan-realestate.com</span></div></div>
+        <div class="row"><span class="ic">▮</span><div><b data-en="Location" data-ar="الموقع">الموقع</b><span data-en="Al-Madinah Al-Munawwarah, Saudi Arabia" data-ar="المدينة المنورة، المملكة العربية السعودية">المدينة المنورة، المملكة العربية السعودية</span></div></div>
+      </div>
+      <div class="rv">
+        <div class="fld"><label data-en="Name" data-ar="الاسم">الاسم</label><input id="f_name" type="text" data-en-ph="Your name" data-ar-ph="اسمك"></div>
+        <div class="fld"><label data-en="Phone" data-ar="رقم الجوال">رقم الجوال</label><input id="f_phone" type="tel" dir="ltr" data-en-ph="05xxxxxxxx" data-ar-ph="05xxxxxxxx"></div>
+        <div class="fld"><label data-en="Project type" data-ar="نوع المشروع">نوع المشروع</label>
+          <select id="f_type">
+            <option data-en="Residential interior" data-ar="تصميم داخلي سكني">تصميم داخلي سكني</option>
+            <option data-en="Exterior / facade" data-ar="واجهات خارجية">واجهات خارجية</option>
+            <option data-en="Landscape / gardens" data-ar="حدائق ولاندسكيب">حدائق ولاندسكيب</option>
+            <option data-en="Commercial / office" data-ar="تجاري / مكاتب">تجاري / مكاتب</option>
+            <option data-en="Supervision / execution" data-ar="إشراف / تنفيذ">إشراف / تنفيذ</option>
+          </select>
+        </div>
+        <div class="fld"><label data-en="Message" data-ar="رسالتك">رسالتك</label><textarea id="f_msg" data-en-ph="A few words about your project…" data-ar-ph="نبذة بسيطة عن مشروعك…"></textarea></div>
+        <button class="btn btn-dark" id="sendBtn" style="width:100%;justify-content:center" data-en="Send via WhatsApp" data-ar="أرسل عبر واتساب">أرسل عبر واتساب</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <a href="#home" class="brand" style="color:#fff">
+        <svg class="mark" width="34" height="34" viewBox="0 0 34 34"><rect x="4" y="14" width="8" height="16" fill="var(--gold)"/><rect x="14" y="6" width="8" height="24" fill="#fff"/><rect x="24" y="11" width="6" height="19" fill="var(--gold)"/></svg>
+        <span class="wm"><b style="color:#fff">مَكَان</b><span style="color:rgba(255,255,255,.7)" data-en="Real Estate Development" data-ar="للتطوير العقاري">للتطوير العقاري</span></span>
+      </a>
+      <div class="foot-link">
+        <a href="#about" data-en="About" data-ar="من نحن">من نحن</a>
+        <a href="#services" data-en="Services" data-ar="خدماتنا">خدماتنا</a>
+        <a href="#work" data-en="Projects" data-ar="أعمالنا">أعمالنا</a>
+        <a href="#contact" data-en="Contact" data-ar="تواصل">تواصل</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span data-en="© 2026 Makan for Real Estate Development. All rights reserved." data-ar="© 2026 مكان للتطوير العقاري. جميع الحقوق محفوظة.">© 2026 مكان للتطوير العقاري. جميع الحقوق محفوظة.</span>
+      <span data-en="Designed to turn imagination into reality." data-ar="صُمّم لتحويل الخيال إلى واقع.">صُمّم لتحويل الخيال إلى واقع.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---- IMAGE DATA (base64) ---- */
+const IMG = {"com_cafe": "assets/img/com_cafe.jpg", "com_courtyard": "assets/img/com_courtyard.jpg", "com_facade_classic": "assets/img/com_facade_classic.jpg", "com_interior": "assets/img/com_interior.jpg", "ext_commercial_night": "assets/img/ext_commercial_night.jpg", "ext_villa_classic": "assets/img/ext_villa_classic.jpg", "ext_villa_modern": "assets/img/ext_villa_modern.jpg", "ext_villas_white": "assets/img/ext_villas_white.jpg", "hero_villa_night": "assets/img/hero_villa_night.jpg", "int_bedroom_classic": "assets/img/int_bedroom_classic.jpg", "int_bedroom_dark": "assets/img/int_bedroom_dark.jpg", "int_dining_marble": "assets/img/int_dining_marble.jpg", "int_kids": "assets/img/int_kids.jpg", "int_living_modern": "assets/img/int_living_modern.jpg", "int_living_warm": "assets/img/int_living_warm.jpg", "land_garden_majlis": "assets/img/land_garden_majlis.jpg", "land_majlis_fire": "assets/img/land_majlis_fire.jpg", "land_pergola_green": "assets/img/land_pergola_green.jpg", "land_pool_night": "assets/img/land_pool_night.jpg", "land_steps": "assets/img/land_steps.jpg"};
+
+/* ---- CONTENT DATA ---- */
+const SERVICES=[
+ {ic:"M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6", en:["Residential interior","Palaces, villas, resorts & apartments — luxury and comfort."], ar:["التصميم الداخلي السكني","قصور وفلل ومنتجعات وشقق — فخامة وراحة."]},
+ {ic:"M4 21V9l8-6 8 6v12M4 21h16M9 13h6v8H9z", en:["Commercial interior","Hotels, restaurants, cafés, offices & showrooms."], ar:["التصميم الداخلي التجاري","فنادق ومطاعم ومقاهٍ ومكاتب ومعارض."]},
+ {ic:"M3 21h18M6 21V7l6-4 6 4v14M10 11h4", en:["Exterior facades","Residential and commercial facade design."], ar:["تصميم الواجهات","واجهات خارجية للمشاريع السكنية والتجارية."]},
+ {ic:"M12 2v6m0 0a5 5 0 015 5H7a5 5 0 015-5zM5 21h14", en:["Landscape & gardens","Design and execution of gardens and outdoor spaces."], ar:["الحدائق واللاندسكيب","تصميم وتنفيذ الحدائق والمرافق الخاصة والعامة."]},
+ {ic:"M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11", en:["Engineering consulting","Decor, furnishing, and execution problem-solving."], ar:["الاستشارات الهندسية","ديكور وتأثيث وحلول لمشاكل التنفيذ."]},
+ {ic:"M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M9 15l2 2 4-4", en:["Supervision & execution","On-site supervision, plan review & building-code compliance."], ar:["الإشراف والتنفيذ","إشراف ميداني ومراجعة المخططات ومطابقة أنظمة البناء."]},
+];
+const PROJECTS=[
+ {k:"ext_villas_white",c:"exterior",en:"Residential compound",ar:"مجمّع فلل سكني"},
+ {k:"hero_villa_night",c:"exterior",en:"Lit villa facade",ar:"واجهة فيلا مضاءة"},
+ {k:"ext_villa_classic",c:"exterior",en:"Neo-classic villa",ar:"فيلا نيو كلاسيك"},
+ {k:"ext_villa_modern",c:"exterior",en:"Modern villa",ar:"فيلا حديثة"},
+ {k:"int_dining_marble",c:"residential",en:"Dining area",ar:"ركن الطعام"},
+ {k:"int_living_warm",c:"residential",en:"Living room",ar:"صالة معيشة"},
+ {k:"int_living_modern",c:"residential",en:"Modern majlis",ar:"مجلس حديث"},
+ {k:"int_bedroom_classic",c:"residential",en:"Master bedroom",ar:"غرفة نوم رئيسية"},
+ {k:"int_bedroom_dark",c:"residential",en:"Bedroom suite",ar:"جناح نوم"},
+ {k:"int_kids",c:"residential",en:"Kids room",ar:"غرفة أطفال"},
+ {k:"land_majlis_fire",c:"landscape",en:"Sunken firepit majlis",ar:"جلسة ومدفأة خارجية"},
+ {k:"land_pool_night",c:"landscape",en:"Pool lounge",ar:"جلسة المسبح"},
+ {k:"land_garden_majlis",c:"landscape",en:"Garden majlis",ar:"مجلس حديقة"},
+ {k:"land_pergola_green",c:"landscape",en:"Pergola lounge",ar:"برجولة وجلسة"},
+ {k:"land_steps",c:"landscape",en:"Landscaped courtyard",ar:"فناء منسّق"},
+ {k:"ext_commercial_night",c:"commercial",en:"Commercial complex",ar:"مجمّع تجاري"},
+ {k:"com_facade_classic",c:"commercial",en:"Mixed-use facade",ar:"واجهة مبنى تجاري"},
+ {k:"com_courtyard",c:"commercial",en:"Hospitality courtyard",ar:"فناء ضيافة"},
+ {k:"com_cafe",c:"commercial",en:"Café / restaurant",ar:"مقهى / مطعم"},
+ {k:"com_interior",c:"commercial",en:"Office / showroom",ar:"مكتب / معرض"},
+];
+const FILTERS=[
+ {id:"all",en:"All",ar:"الكل"},
+ {id:"residential",en:"Residential",ar:"سكني"},
+ {id:"exterior",en:"Exterior",ar:"واجهات"},
+ {id:"landscape",en:"Landscape",ar:"حدائق"},
+ {id:"commercial",en:"Commercial",ar:"تجاري"},
+];
+const STEPS=[
+ {en:["Service request","Initial meeting, gathering & analyzing project info, and a price quote."],ar:["طلب الخدمة","اجتماع مبدئي، جمع وتحليل معلومات المشروع، وإرسال عرض سعر."]},
+ {en:["Agreement","Capturing all requirements and ideas, and space-utilization plans."],ar:["عقد الاتفاق","جمع كل المتطلبات والأفكار وخطط استغلال المساحات."]},
+ {en:["2D plans","Site visit, measurements, space analysis, and furniture layout."],ar:["مخططات ثنائية الأبعاد","زيارة الموقع ورفع القياسات وتحليل الفراغات وتوزيع الأثاث."]},
+ {en:["3D visuals","Applying styles and colors, then client approval."],ar:["مناظير ثلاثية الأبعاد","تطبيق الأنماط والألوان ثم اعتماد العميل."]},
+ {en:["Reports & BOQ","Execution drawings, bill of quantities, material & technical reports."],ar:["التقارير وجداول الكميات","مخططات تنفيذية وجداول كميات وتقارير خامات وفنية."]},
+ {en:["Handover","Compiling the final project file and the design presentation."],ar:["التسليم","تجميع الملف النهائي والعرض النهائي للعميل."]},
+];
+const GUARANTEES=[
+ {en:["State-of-the-art designs","Latest styles, tailored to your taste."],ar:["تصاميم على أحدث الطرازات","تحاكي ذوقك بأحدث الاتجاهات."]},
+ {en:["Accurate & buildable","Realistic designs that can be executed as drawn."],ar:["واقعية ودقة","تصاميم قابلة للتنفيذ كما رُسمت."]},
+ {en:["Full material breakdown","Detailed explanation of every material and tool used."],ar:["شرح كامل للخامات","تفصيل لكل الخامات والأدوات المستخدمة."]},
+ {en:["Reliable reports","Precise quantities, measurements & dimensions for execution."],ar:["تقارير يُعتمد عليها","كميات ومقاسات وأبعاد دقيقة وقت التنفيذ."]},
+ {en:["Quality & efficiency","Maintained standards across every stage."],ar:["جودة وكفاءة","الحفاظ على المعايير في كل مرحلة."]},
+ {en:["On-time handover","Delivery on the agreed schedule."],ar:["تسليم في الموعد","الاستلام في الموعد المحدد مسبقًا."]},
+];
+const DELIVER=[
+ {en:["3D visuals","General views, every space from all sides, and detailed areas."],ar:["صور ثلاثية الأبعاد","منظور عام، كل فراغ من جميع الجهات، ومناطق تفصيلية."]},
+ {en:["2D plans","Furniture layout, movement axes, gypsum & lighting."],ar:["مخططات ثنائية الأبعاد","توزيع الفرش ومحاور الحركة والجبس والإنارة."]},
+ {en:["MEP plans","HVAC, electrical, plumbing & flooring layouts."],ar:["مخططات الخدمات","تكييف وكهرباء وسباكة وأرضيات."]},
+ {en:["Technical reports","Woodwork, ceramics, marble, paint & smart-home specs."],ar:["تقارير فنية","أعمال خشبية وسيراميك ورخام ودهان وسمارت هوم."]},
+];
+
+/* ---- RENDER ---- */
+let lang="ar";
+const $=s=>document.querySelector(s);
+function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
+
+function buildServices(){const g=$("#svcGrid");g.innerHTML="";SERVICES.forEach((s,i)=>{
+  const d=el("div","svc");
+  d.innerHTML=`<div class="no">0${i+1}</div>
+  <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="${s.ic}"/></svg>
+  <h3 data-en="${s.en[0]}" data-ar="${s.ar[0]}"></h3>
+  <p data-en="${s.en[1]}" data-ar="${s.ar[1]}"></p>`;
+  g.appendChild(d);});}
+function buildFilters(){const f=$("#filters");f.innerHTML="";FILTERS.forEach((x,i)=>{
+  const b=el("button",i===0?"on":"");b.dataset.f=x.id;b.dataset.en=x.en;b.dataset.ar=x.ar;
+  b.onclick=()=>{document.querySelectorAll("#filters button").forEach(z=>z.classList.remove("on"));b.classList.add("on");
+    document.querySelectorAll(".cell").forEach(c=>{c.classList.toggle("hide",x.id!=="all"&&c.dataset.c!==x.id);});};
+  f.appendChild(b);});}
+function buildGallery(){const g=$("#gallery");g.innerHTML="";PROJECTS.forEach(p=>{
+  const c=el("div","cell");c.dataset.c=p.c;
+  c.innerHTML=`<img src="${IMG[p.k]||''}" alt="${p.en}" loading="lazy">
+   <div class="cap"><span class="k" data-en="${p.c}" data-ar="${({residential:'سكني',exterior:'واجهات',landscape:'حدائق',commercial:'تجاري'})[p.c]}"></span>
+   <span class="t" data-en="${p.en}" data-ar="${p.ar}"></span></div>`;
+  g.appendChild(c);});}
+function buildSteps(){const s=$("#steps");s.innerHTML="";STEPS.forEach((x,i)=>{
+  const d=el("div","step");d.innerHTML=`<div class="no">0${i+1}</div>
+  <h3 data-en="${x.en[0]}" data-ar="${x.ar[0]}"></h3><p data-en="${x.en[1]}" data-ar="${x.ar[1]}"></p>`;s.appendChild(d);});}
+function buildGuarantees(){const w=$("#guarantees");w.innerHTML="";GUARANTEES.forEach(x=>{
+  const d=el("div","gitem");d.innerHTML=`<span class="ck">✓</span><div>
+  <h3 data-en="${x.en[0]}" data-ar="${x.ar[0]}"></h3><p data-en="${x.en[1]}" data-ar="${x.ar[1]}"></p></div>`;w.appendChild(d);});}
+function buildDeliver(){const w=$("#deliver");w.innerHTML="";DELIVER.forEach(x=>{
+  const d=el("div","dcard");d.innerHTML=`<b data-en="${x.en[0]}" data-ar="${x.ar[0]}"></b><span data-en="${x.en[1]}" data-ar="${x.ar[1]}"></span>`;w.appendChild(d);});}
+
+function applyLang(L){
+  lang=L;
+  document.documentElement.lang=L;
+  document.documentElement.dir=L==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-en]").forEach(e=>{if(e.dataset[L]!=null)e.innerHTML=e.dataset[L];});
+  document.querySelectorAll("[data-en-ph]").forEach(e=>{e.placeholder=L==="ar"?e.dataset.arPh:e.dataset.enPh;});
+  document.querySelectorAll(".lang button").forEach(b=>b.classList.toggle("on",b.dataset.lang===L));
+}
+
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>applyLang(b.dataset.lang));
+
+/* WhatsApp submit */
+$("#sendBtn").onclick=()=>{
+  const n=$("#f_name").value,p=$("#f_phone").value,t=$("#f_type").selectedOptions[0].textContent,m=$("#f_msg").value;
+  const txt=(lang==="ar"
+   ?`السلام عليكم، أنا ${n||'—'}%0Aنوع المشروع: ${t}%0Aالجوال: ${p||'—'}%0A${m||''}`
+   :`Hello, I'm ${n||'—'}%0AProject: ${t}%0APhone: ${p||'—'}%0A${m||''}`);
+  window.open(`https://wa.me/966599303838?text=${txt}`,"_blank");
+};
+
+/* header + menu + reveal */
+const hdr=$("#hdr");
+addEventListener("scroll",()=>hdr.classList.toggle("scrolled",scrollY>60));
+$("#burger").onclick=()=>$("#menu").classList.toggle("open");
+$("#menu").querySelectorAll("a").forEach(a=>a.onclick=()=>$("#menu").classList.remove("open"));
+
+buildServices();buildFilters();buildGallery();buildSteps();buildGuarantees();buildDeliver();
+applyLang("ar");
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
